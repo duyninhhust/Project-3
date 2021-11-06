@@ -24,7 +24,7 @@
 
 <div class="container">
     <!-- admin nav   -->
-    <div th:insert="~{AdminNavbar.html}"></div>
+<!--    <div th:insert="~{AdminNavbar.html}"></div>-->
 
     <div class="table-wrapper">
         <div class="table-title">
@@ -47,43 +47,43 @@
                                     <label for="selectAll"></label>
                                 </span>
                 </th>
-                <th><a th:href="">Id</a></th>
-                <th><a th:href="">Name</a></th>
+                <th><a href="">Id</a></th>
+                <th><a href="">Name</a></th>
                 <th><a>Image</a></th>
-                <th><a th:href="">Price</a></th>
-                <th><a th:href="">Quantity</a></th>
+                <th><a href="">Price</a></th>
+                <th><a href="">Quantity</a></th>
                 <th><a>Introduction</a></th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="">
+            <tr each="">
                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                         <label for="checkbox1"></label>
                                     </span>
                 </td>
-                <td th:text=""></td>
-                <td th:text=""></td>
+                <td text=""></td>
+                <td text=""></td>
                 <td>
-                    <img th:src="">
+                    <img src="">
                 </td>
-                <td th:text=""></td>
-                <td th:text=""></td>
-                <td th:text=""></td>
+                <td text=""></td>
+                <td text=""></td>
+                <td text=""></td>
                 <td>
-                    <a th:href="" class="edit" data-toggle="modal"><i
+                    <a href="" class="edit" data-toggle="modal"><i
                             class="material-icons" title="Edit">&#xE254;</i></a>
-                    <a th:href="" class="delete" data-toggle="modal"><i
+                    <a href="" class="delete" data-toggle="modal"><i
                             class="material-icons" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
             </tbody>
         </table>
         <div class="clearfix">
-            <div class="hint-text">Showing <b th:text=""></b> out of <b th:text=""></b> entries</div>
-            <ul class="pagination" th:if="">
+            <div class="hint-text">Showing <b text=""></b> out of <b text=""></b> entries</div>
+            <ul class="pagination" if="">
 
 <!--                <li class="page-item"><a href="#" class="page-link">4</a></li>-->
 <!--                <li class="page-item"><a href="#" class="page-link">5</a></li>-->

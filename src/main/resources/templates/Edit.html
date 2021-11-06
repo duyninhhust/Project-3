@@ -24,7 +24,7 @@
     <body>
         <div class="container">
             <!-- admin nav   -->
-            <div th:insert="~{AdminNavbar.html}"></div>
+<!--            <div th:insert="~{AdminNavbar.html}"></div>-->
             <!--    -->
             <div class="table-wrapper">
                 <div class="table-title">
@@ -40,7 +40,7 @@
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form th:action="" method="post" th:object="">
+                        <form action="" method="post" object="">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
@@ -48,32 +48,32 @@
                             <div class="modal-body">					
                                 <div class="form-group">
                                     <label>ID</label>
-                                    <input th:field="" name="id" type="text" class="form-control" readonly required>
+                                    <input field="" name="id" type="text" class="form-control" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input th:field="" name="name" type="text" class="form-control" required>
+                                    <input field="" name="name" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input th:field="" name="image" type="text" class="form-control" required>
+                                    <input field="" name="image" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input th:field="" name="price" type="text" class="form-control" required>
+                                    <input field="" name="price" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input th:field="" name="quantity" type="text" class="form-control" required>
+                                    <input field="" name="quantity" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label >Introduction</label>
-                                    <textarea name="introduction" class="form-control" required th:field=""></textarea>
+                                    <textarea name="introduction" class="form-control" required field=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
-                                    <select name="category" class="form-select" aria-label="Default select example" th:field="*{category}">
-                                            <option th:each="" th:text=""  th:value=""></option>
+                                    <select name="category" class="form-select" aria-label="Default select example" >
+                                            <option each="" text=""  value=""></option>
                                     </select>
                                 </div>
 

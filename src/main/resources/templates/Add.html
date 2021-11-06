@@ -24,7 +24,7 @@
 <body>
 <div class="container">
     <!-- admin nav   -->
-    <div th:insert="~{AdminNavbar.html}"></div>
+<!--    <div th:insert="~{AdminNavbar.html}"></div>-->
     <!--    -->
     <div class="table-wrapper">
         <div class="table-title">
@@ -40,7 +40,7 @@
     <div id="editEmployeeModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form th:action="" method="post" th:object="">
+                <form action="" method="post" object="">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Product</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label>Category</label>
                             <select name="category" class="form-select" aria-label="Default select example">
-                                <option th:each="" th:text="" th:value=""></option>
+                                <option each="" text="" value=""></option>
                             </select>
                         </div>
 

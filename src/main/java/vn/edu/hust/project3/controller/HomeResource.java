@@ -23,5 +23,19 @@ public class HomeResource {
         return "index";
     }
 
+    @GetMapping("/manage")
+    String asdasd(){
+        return "ManagerProduct";
+    }
+
+    @GetMapping("/manage1")
+    String asddssdasd(){
+        return "Add";
+    }
+
+    @GetMapping("/manage2")
+    String asddssdassd(){
+        return "Edit";
+    }
 
 }
