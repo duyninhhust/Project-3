@@ -45,7 +45,7 @@ public class Phone {
     private String sim;
     @Column(name = "pin_charger")
     private String pinCharger;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

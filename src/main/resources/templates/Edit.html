@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="css/manager.css" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/css/manager.css}" rel="stylesheet" type="text/css"/>
         <style>
             img{
                 width: 200px;
@@ -40,7 +40,7 @@
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="" method="post" object="">
+                        <form action="" method="put" object="" id="editForm">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
@@ -48,32 +48,33 @@
                             <div class="modal-body">					
                                 <div class="form-group">
                                     <label>ID</label>
-                                    <input field="" name="id" type="text" class="form-control" readonly required>
+                                    <input field="" name="id" type="text" class="form-control" readonly required th:value="${phone.id}">
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input field="" name="name" type="text" class="form-control" required>
+                                    <input field="" name="name" type="text" class="form-control" required th:value="${phone.name}">
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input field="" name="image" type="text" class="form-control" required>
+                                    <input field="" name="image" type="text" class="form-control" required th:value="${phone.image}">
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input field="" name="price" type="text" class="form-control" required>
+                                    <input field="" name="price" type="text" class="form-control" required th:value="${phone.price}">
                                 </div>
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input field="" name="quantity" type="text" class="form-control" required>
+                                    <input field="" name="quantity" type="text" class="form-control" required th:value="${phone.quantity}">
                                 </div>
                                 <div class="form-group">
                                     <label >Introduction</label>
-                                    <textarea name="introduction" class="form-control" required field=""></textarea>
+                                    <textarea name="introduction" class="form-control" required th:field="${phone.introduction}"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select name="category" class="form-select" aria-label="Default select example" >
-                                            <option each="" text=""  value=""></option>
+                                            <option th:each="category : ${categories}" th:text="${category.name}"
+                                                    th:value="${category.id}" th:selected="${phone.category.id == category.id}"></option>
                                     </select>
                                 </div>
 
@@ -89,6 +90,6 @@
         </div>
 
 
-        <script th:src="@{js/manager.js}" type="text/javascript"></script>
+        <script th:src="@{/js/manager.js}" type="text/javascript"></script>
     </body>
 </html>

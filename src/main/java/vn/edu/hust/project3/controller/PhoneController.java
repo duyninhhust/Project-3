@@ -28,7 +28,7 @@ public class PhoneController {
         return phoneService.createPhone(phone);
     }
 
-    @PutMapping("/products/{id}")
+    @PostMapping("/products/{id}")
     public Phone updatePhone(@PathVariable int id, @RequestBody Phone phone){
         return phoneService.updatePhone(id, phone);
     }

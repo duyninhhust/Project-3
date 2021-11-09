@@ -33,7 +33,7 @@
                     <h2>Manage <b>Product</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="add" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                    <a href="/add" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
 
                 </div>
             </div>
@@ -57,23 +57,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr each="">
+            <tr th:each="phone : ${phones}">
                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                         <label for="checkbox1"></label>
                                     </span>
                 </td>
-                <td text=""></td>
-                <td text=""></td>
+                <td th:text="${phone.id}" ></td>
+                <td th:text="${phone.name}" ></td>
                 <td>
-                    <img src="">
+                    <img th:src="${phone.image}">
                 </td>
-                <td text=""></td>
-                <td text=""></td>
-                <td text=""></td>
+                <td th:text="${phone.price}" ></td>
+                <td th:text="${phone.quantity}" ></td>
+                <td th:text="${phone.introduction}" ></td>
                 <td>
-                    <a href="" class="edit" data-toggle="modal"><i
+                    <a th:href="@{/edit/{id}(id=${phone.id})}" class="edit" data-toggle="modal"><i
                             class="material-icons" title="Edit">&#xE254;</i></a>
                     <a href="" class="delete" data-toggle="modal"><i
                             class="material-icons" title="Delete">&#xE872;</i></a>
