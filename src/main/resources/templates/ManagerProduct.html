@@ -60,7 +60,7 @@
             <tr th:each="phone : ${phones}">
                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <input type="checkbox" id="checkbox1" name="checkbox" th:value="${phone.id}">
                                         <label for="checkbox1"></label>
                                     </span>
                 </td>
@@ -75,8 +75,8 @@
                 <td>
                     <a th:href="@{/edit/{id}(id=${phone.id})}" class="edit" data-toggle="modal"><i
                             class="material-icons" title="Edit">&#xE254;</i></a>
-                    <a href="" class="delete" data-toggle="modal"><i
-                            class="material-icons" title="Delete">&#xE872;</i></a>
+                    <a href="javascript:void(0)" class="delete" data-toggle="modal"><i
+                            class="material-icons" title="Delete" onclick="deletePhone()">&#xE872;</i></a>
                 </td>
             </tr>
             </tbody>
