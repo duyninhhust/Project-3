@@ -1,6 +1,10 @@
 package vn.edu.hust.project3.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import vn.edu.hust.project3.exception.ProductNotFoundException;
 import vn.edu.hust.project3.model.Phone;
@@ -63,6 +67,13 @@ public class PhoneServiceImpl implements PhoneService {
     @Override
     public List<Phone> getAllPhoneByIds(List<Integer> ids) {
         return phoneRepository.findByIdIn(ids);
+    }
+
+    @Override
+    public Page<Phone> findPhonePaginated(int pageNumber, int pageSize, String sortField, String sortDir) {
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize,
+                sortDir.equals("asc") ? Sort.by(sortField).ascending() : Sort.by(sortField).descending());
+        return phoneRepository.findAll(pageable);
     }
 
     private Phone findProductById(int id) {

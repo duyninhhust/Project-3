@@ -1,5 +1,6 @@
 package vn.edu.hust.project3.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import vn.edu.hust.project3.model.Phone;
 
@@ -14,4 +15,5 @@ public interface PhoneService {
     Phone getPhoneById(int id);
     List<Phone> getAllPhone();
     List<Phone> getAllPhoneByIds(List<Integer> ids);
+    Page<Phone> findPhonePaginated(int pageNumber, int pageSize, String sortField, String sortDir);
 }
