@@ -60,11 +60,11 @@ public class HomeResource {
         if(phone.getId() != 0){
             Phone updatedPhone = phoneService.updatePhone(phone.getId(), phone);
             alert = "Chỉnh sửa thông tin sản phẩm thành công";
-            redirectView = new RedirectView("/edit/" + updatedPhone.getId(), true);
+            redirectView = new RedirectView("/manage" , true);
         } else {
             Phone newPhone = phoneService.createPhone(phone);
             alert = "Thêm mới sản phẩm thành công";
-            redirectView = new RedirectView("/edit/" + phone.getId(), true);
+            redirectView = new RedirectView("/manage", true);
         }
         redirectAttributes.addFlashAttribute("alert", alert);
         return redirectView;

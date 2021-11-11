@@ -38,6 +38,10 @@
         </div>
     </div>
 
+    <div th:if="${alert != null}" class="alert alert-success" role="alert" style="text-align: center">
+        <b th:utext="${alert}"></b>
+    </div>
+
     <div id="editEmployeeModal">
         <div class="modal-dialog">
             <div class="modal-content">

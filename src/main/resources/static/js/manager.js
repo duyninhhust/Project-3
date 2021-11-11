@@ -15,7 +15,7 @@ $(document).ready(function () {
             });
         }
     });
-    checkbox.click(function () {
+    checkbox.click(function (){
         if (!this.checked) {
             $("#selectAll").prop("checked", false);
         }
@@ -26,12 +26,14 @@ $(document).ready(function () {
 });
 
 function deletePhone(){
+
+
     var arrayCheckbox = [];
     $("input:checkbox[name='checkbox']:checked").each(function(){
         arrayCheckbox.push($(this).val());
     });
 
-    if(arrayCheckbox.length > 0){
+
         console.log(arrayCheckbox);
         $.ajax({
             url : "/deletePhone",
@@ -40,14 +42,30 @@ function deletePhone(){
                 phoneIds: arrayCheckbox
             },
             success : function a(result){
-                alert("Xóa thành công");
+
                 window.location.href= "/manage";
             }
         });
-    }
+
 
 }
 
+function openDeleteModal(){
+    var arrayCheckbox = [];
+    $("input:checkbox[name='checkbox']:checked").each(function(){
+        arrayCheckbox.push($(this).val());
+    });
+    if(arrayCheckbox.length > 0) {
+        var container = $("body");
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.style.display = 'none';
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#deleteEmployeeModal');
+        container.append(button);
+        button.click();
+    }
+}
 
 
 
