@@ -37,10 +37,16 @@
                     </div>
                 </div>
             </div>
+
+            <div th:if="${alert != null}" class="alert alert-success" role="alert" style="text-align: center">
+                <b th:utext="${alert}"></b>
+            </div>
+
+
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="" method="put" object="" id="editForm">
+                        <form th:action="@{/savePhone}" method="post" th:object="${phone}" id="editForm">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
@@ -48,44 +54,49 @@
                             <div class="modal-body">					
                                 <div class="form-group">
                                     <label>ID</label>
-                                    <input field="" name="id" type="text" class="form-control" readonly required th:value="${phone.id}">
+                                    <input name="id" type="text" class="form-control" readonly required th:field="*{id}">
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input field="" name="name" type="text" class="form-control" required th:value="${phone.name}">
+                                    <input field="" name="name" type="text" class="form-control" required th:field="*{name}">
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input field="" name="image" type="text" class="form-control" required th:value="${phone.image}">
+                                    <input field="" name="image" type="text" class="form-control" required th:field="*{image}">
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input field="" name="price" type="text" class="form-control" required th:value="${phone.price}">
+                                    <input field="" name="price" type="text" class="form-control" required th:field="*{price}">
                                 </div>
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input field="" name="quantity" type="text" class="form-control" required th:value="${phone.quantity}">
+                                    <input field="" name="quantity" type="text" class="form-control" required th:field="*{quantity}">
                                 </div>
                                 <div class="form-group">
                                     <label >Introduction</label>
-                                    <textarea name="introduction" class="form-control" required th:field="${phone.introduction}"></textarea>
+                                    <textarea name="introduction" class="form-control" required th:field="*{introduction}"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select name="category" class="form-select" aria-label="Default select example" >
-                                            <option th:each="category : ${categories}" th:text="${category.name}"
-                                                    th:value="${category.id}" th:selected="${phone.category.id == category.id}"></option>
+                                            <option th:each="categoryItem : ${categories}" th:text="${categoryItem.name}"
+                                                    th:field="*{category.id}" th:selected="${phone.category.id == categoryItem.id}" th:value="${categoryItem.id}"></option>
                                     </select>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Edit">
+                                <a href="/manage">
+                                    <button type="button" class="btn btn-primary">Cancel</button>
+                                </a>
+                                <input type="submit" class="btn btn-success" value="Save">
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
+
 
         </div>
 
