@@ -36,14 +36,14 @@ function deletePhone(){
 
         console.log(arrayCheckbox);
         $.ajax({
-            url : "/deletePhone",
+            url : "/delete-phone",
             type : "delete",
             data : {
                 phoneIds: arrayCheckbox
             },
             success : function a(result){
 
-                window.location.href= "/manage";
+                window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
             }
         });
 

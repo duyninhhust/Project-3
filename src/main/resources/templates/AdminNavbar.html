@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Admin Manager</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="" th:class="${pageId == 3} ? 'active': ''"><a th:href="@{'/manage-category'}">Manager Category</a></li>
+            <li class="" th:class="${pageId == 1} ? 'active': ''"><a th:href="@{'/manage-phone/1?sortField=id&sortDir=asc'}">Manager Product</a></li>
+
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user"><span class="glyphicon glyphicon-user"></span> admin</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>

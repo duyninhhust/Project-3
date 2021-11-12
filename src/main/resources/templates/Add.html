@@ -24,8 +24,8 @@
 <body>
 <div class="container">
     <!-- admin nav   -->
-<!--    <div th:insert="~{AdminNavbar.html}"></div>-->
-    <!--    -->
+    <div th:insert="~{AdminNavbar.html}"></div>
+
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
@@ -45,43 +45,83 @@
     <div id="editEmployeeModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form th:action="@{/savePhone}" method="post" th:object="${phone}" id="addForm">
+                <form th:action="@{/save-phone}" method="post" th:object="${phone}" id="addForm">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Product</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/manage-phone/1?sortField=id&sortDir=asc">&times;</a></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Name</label>
-                            <input field="" name="name" type="text" class="form-control" required th:field="*{name}">
+                            <input  name="name" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Image</label>
-                            <input field="" name="image" type="text" class="form-control" required th:field="*{image}">
+                            <input  name="image" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input field="" name="price" type="text" class="form-control" required th:field="*{price}">
+                            <input  name="price" type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Old Price</label>
+                            <input name="oldPrice" type="number" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Quantity</label>
-                            <input field="" name="quantity" type="text" class="form-control" required th:field="*{quantity}">
+                            <input  name="quantity" type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Screen</label>
+                            <input  name="screen" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Operating System</label>
+                            <input  name="operatingSystem" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Rear Camera</label>
+                            <input name="rearCamera" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Front Camera</label>
+                            <input  name="frontCamera" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Chip</label>
+                            <input  name="chip" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Ram</label>
+                            <input  name="ram" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Rom</label>
+                            <input  name="rom" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Sim</label>
+                            <input  name="sim" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Pin Charger</label>
+                            <input  name="pinCharger" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label >Introduction</label>
-                            <textarea name="introduction" class="form-control" required th:field="*{introduction}"></textarea>
+                            <textarea name="introduction" class="form-control" required ></textarea>
                         </div>
                         <div class="form-group">
                             <label>Category</label>
                             <select name="category" class="form-select" aria-label="Default select example" >
                                 <option th:each="categoryItem : ${categories}" th:text="${categoryItem.name}"
-                                        th:field="*{category.id}" th:value="${categoryItem.id}"></option>
+                                         th:value="${categoryItem.id}"></option>
                             </select>
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <a href="/manage">
+                        <a href="/manage-phone/1?sortField=id&sortDir=asc">
                             <button type="button" class="btn btn-primary">Cancel</button>
                         </a>
                         <input type="submit" class="btn btn-success" value="Add">
