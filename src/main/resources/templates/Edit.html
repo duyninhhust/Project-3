@@ -23,9 +23,9 @@
         </style>
     <body>
         <div class="container">
-            <!-- admin nav   -->
-<!--            <div th:insert="~{AdminNavbar.html}"></div>-->
-            <!--    -->
+<!--             admin nav   -->
+            <div th:insert="~{AdminNavbar.html}"></div>
+
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -49,7 +49,7 @@
                         <form th:action="@{/save-phone}" method="post" th:object="${phone}" id="editForm">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/admin/manager-product/1?sortField=id&sortDir=asc">&times;</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/manage-phone/1?sortField=id&sortDir=asc">&times;</a></button>
                             </div>
                             <div class="modal-body">					
                                 <div class="form-group">
@@ -126,7 +126,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <a href="/manage-phone">
+                                <a href="/manage-phone/1?sortField=id&sortDir=asc">
                                     <button type="button" class="btn btn-primary">Cancel</button>
                                 </a>
                                 <input type="submit" class="btn btn-success" value="Save">

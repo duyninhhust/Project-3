@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 //@RequestMapping("/admin/")
 @RequiredArgsConstructor
-public class ManagerPhoneResource {
+public class ManagePhoneResource {
 
     private final PhoneService phoneService;
     private final CategoryService categoryService;
