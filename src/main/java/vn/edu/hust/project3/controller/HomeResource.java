@@ -28,4 +28,17 @@ public class HomeResource {
         return "index";
     }
 
+    @GetMapping("/detail-phone")
+    String DetailPhone(Model model){
+
+        return "product";
+    }
+
+    @GetMapping("/index")
+    String Home(Model model){
+
+        return "index2";
+    }
+
+
 }

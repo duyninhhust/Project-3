@@ -76,6 +76,21 @@ public class PhoneServiceImpl implements PhoneService {
         return phoneRepository.findAll(pageable);
     }
 
+    @Override
+    public List<Phone> getFeaturedPhone() {
+        return phoneRepository.findTopPhoneHasTheMostPrice();
+    }
+
+    @Override
+    public List<Phone> searchPhoneByName(String name) {
+        return phoneRepository.findPhoneByName(name);
+    }
+
+    @Override
+    public List<Phone> getPhoneByPrice(double p1, double p2) {
+        return phoneRepository.findPhoneByPrice(p1, p2);
+    }
+
     private Phone findProductById(int id) {
         Optional<Phone> optional = phoneRepository.findById(id);
         if (!optional.isPresent()) {
@@ -83,4 +98,6 @@ public class PhoneServiceImpl implements PhoneService {
         }
         return optional.get();
     }
+
+
 }
