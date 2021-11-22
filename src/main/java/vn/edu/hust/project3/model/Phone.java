@@ -19,7 +19,7 @@ public class Phone {
     private String name;
     @Column(name = "price", nullable = false)
     private double price;
-    @Column(name = "old_price")
+    @Column(name = "old_price", columnDefinition = "double default 0.0")
     private double oldPrice;
     @Column(name = "quantity", nullable = false)
     private long quantity;
