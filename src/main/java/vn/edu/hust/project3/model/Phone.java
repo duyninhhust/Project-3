@@ -3,8 +3,10 @@ package vn.edu.hust.project3.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -45,6 +47,8 @@ public class Phone {
     private String sim;
     @Column(name = "pin_charger")
     private String pinCharger;
+    @Column(name = "created_date", columnDefinition = "DATE")
+    private String createdDate;
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;

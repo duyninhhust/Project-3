@@ -25,16 +25,13 @@ $(document).ready(function () {
 
 });
 
-function deletePhone(){
-
-
-    var arrayCheckbox = [];
-    $("input:checkbox[name='checkbox']:checked").each(function(){
-        arrayCheckbox.push($(this).val());
-    });
-
-
-        console.log(arrayCheckbox);
+function deleteManyPhone(id){
+    debugger;
+    if(id == null){
+        var arrayCheckbox = [];
+        $("input:checkbox[name='checkbox']:checked").each(function(){
+            arrayCheckbox.push($(this).val());
+        });
         $.ajax({
             url : "/delete-phone",
             type : "delete",
@@ -42,30 +39,88 @@ function deletePhone(){
                 phoneIds: arrayCheckbox
             },
             success : function a(result){
+                if(result == "00"){
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Xóa thành công',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function () {
+                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                    })
+                } else {
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Có lỗi khi xóa ',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }).then(function () {
+                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                    })
+                }
 
-                window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
             }
         });
+    } else {
+        console.log("id", id);
+        $.ajax({
+            url : "/delete-one-phone",
+            type : "delete",
+            data : {
+                id: id
+            },
+            success : function a(result){
+                if(result == "00"){
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Xóa thành công',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function () {
+                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                    })
+                } else {
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Có lỗi khi xóa ',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }).then(function () {
+                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                    })
+                }
+
+            }
+        });
+    }
 
 
 }
 
-function openDeleteModal(){
+function openDeleteModal(id){
     var arrayCheckbox = [];
     $("input:checkbox[name='checkbox']:checked").each(function(){
         arrayCheckbox.push($(this).val());
     });
-    if(arrayCheckbox.length > 0) {
-        var container = $("body");
-        var button = document.createElement('button');
-        button.type = 'button';
-        button.style.display = 'none';
-        button.setAttribute('data-toggle', 'modal');
-        button.setAttribute('data-target', '#deleteEmployeeModal');
-        container.append(button);
-        button.click();
+    if(arrayCheckbox.length > 0 || id != null) {
+        Swal.fire({
+            title: 'Xác nhận xóa',
+            text: 'Bạn có chắc chắn muốn xóa?',
+            icon: 'warning',
+            cancelButtonText: "CANCEL",
+            confirmButtonText: 'OK',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then(function (result) {
+            if (result.value) {
+                deleteManyPhone(id);
+            }
+        })
     }
+
 }
+
 
 
 

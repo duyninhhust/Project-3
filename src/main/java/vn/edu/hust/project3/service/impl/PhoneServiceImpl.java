@@ -11,6 +11,7 @@ import vn.edu.hust.project3.model.Phone;
 import vn.edu.hust.project3.repository.PhoneRepository;
 import vn.edu.hust.project3.service.PhoneService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +50,7 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
+    @Transactional
     public void deletePhone(int id) {
         Phone phone = findProductById(id);
         phoneRepository.delete(phone);
@@ -79,6 +81,16 @@ public class PhoneServiceImpl implements PhoneService {
     @Override
     public List<Phone> getFeaturedPhone() {
         return phoneRepository.findTopPhoneHasTheMostPrice();
+    }
+
+    @Override
+    public List<Phone> getMostQuantityPhone() {
+        return phoneRepository.findTopPhoneHasTheMostQuantity();
+    }
+
+    @Override
+    public List<Phone> getNewestPhone() {
+        return phoneRepository.findNewestPhone();
     }
 
     @Override

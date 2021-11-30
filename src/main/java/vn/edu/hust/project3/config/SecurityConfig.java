@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         // Được quyền truy cập khi chưa login
-        http.authorizeRequests().antMatchers("/login", "/","/manage", "/edit*", "/add").permitAll();
+        http.authorizeRequests().antMatchers("/login", "/","/manage-phone/*", "/edit*", "/add").permitAll();
 
         // Có những quyền Admin, Member sẽ được truy cập
         http.authorizeRequests().antMatchers("/user/*", "/cart/*", "/checkout","/sendMail","/sendMoney").hasAnyAuthority("admin", "member");

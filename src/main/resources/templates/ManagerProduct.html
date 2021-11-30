@@ -33,7 +33,7 @@
                     <h2>Manage <b>Product</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="javascript:void(0)" class="delete btn btn-danger"><i class="material-icons" title="Delete" onclick="openDeleteModal()">&#xE872;</i></a>
+                    <a href="javascript:void(0)" class="delete btn btn-danger"><i class="material-icons" title="Delete" onclick="openDeleteModal(null)">&#xE872;</i></a>
                     <a href="/add-phone" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
                 </div>
             </div>
@@ -41,6 +41,9 @@
         </div>
 
         <div th:if="${alert != null}" class="alert alert-success" role="alert" style="text-align: center">
+            <b th:utext="${alert}"></b>
+        </div>
+        <div th:if="${alertCode == 9999}" class="alert alert-danger" role="alert" style="text-align: center">
             <b th:utext="${alert}"></b>
         </div>
 
@@ -83,8 +86,8 @@
                 <td>
                     <a th:href="@{/edit-phone/{id}(id=${phone.id})}" class="edit" ><i
                             class="material-icons" title="Edit">&#xE254;</i></a>
-                    <a th:href="@{/delete-one-phone(id=${phone.id})}" class="delete" ><i
-                            class="material-icons" title="Delete" onclick="openDeleteModal()">&#xE872;</i></a>
+                    <a href="#" class="delete" ><i
+                            class="material-icons" title="Delete" th:attr="onclick='openDeleteModal(\'' + ${phone.id}+  '\');'">&#xE872;</i></a>
                 </td>
             </tr>
             </tbody>
@@ -112,27 +115,8 @@
         <button type="button" class="btn btn-primary">Back to home</button>
     </a>
 </div>
-
-<!-- Delete Modal -->
-<div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="deleteModelLabel">Xác nhận xóa </h2>
-                
-            </div>
-            <div class="modal-body">
-                <h4>Bạn có chắc chắn xóa ?</h4>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button  class="btn btn-danger" data-dismiss="modal" onclick="deletePhone()">Yes</button>
-            </div>
-        </div>
-    </div>
-</div>
 <script th:src="@{/js/manager.js}" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 

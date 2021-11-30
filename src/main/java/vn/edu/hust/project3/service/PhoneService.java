@@ -17,6 +17,8 @@ public interface PhoneService {
     List<Phone> getAllPhoneByIds(List<Integer> ids);
     Page<Phone> findPhonePaginated(int pageNumber, int pageSize, String sortField, String sortDir);
     List<Phone> getFeaturedPhone();
+    List<Phone> getMostQuantityPhone();
+    List<Phone> getNewestPhone();
     List<Phone> searchPhoneByName(String name);
     List<Phone> getPhoneByPrice(double p1, double p2);
 }

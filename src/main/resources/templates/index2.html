@@ -222,52 +222,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="banner">
 		<div class="banner-right">
-			<ul id="flexiselDemo2">
-				<li>
+			<ul id="flexiselDemo2" >
+				<li th:each="featuredProduct: ${featuredPhones}">
 					<div class="banner-grid">
 						<h2>Featured Phone</h2>
 						<div class="wome">
-							<a href="single.html"><img class="img-responsive" src="images/bi1.jpg" alt="" />
+							<a href="#"><img class="img-responsive" th:src="${featuredProduct.image}" alt="" />
 							</a>
 							<div class="women simpleCart_shelfItem">
 								<a href="#"><img src="images/ll.png" alt=""></a>
-								<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-								<p class="ba-price"><del>$100.00</del><em class="item_price">$70.00</em></p>
+								<h6 th:text="${featuredProduct.name}"><a href="single.html"></a></h6>
+								<p class="ba-price"><del>$100.00</del><em class="item_price" th:text="${featuredProduct.price}"></em></p>
 								<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 							</div>
 						</div>
 					</div>
 				</li>
-				<li>
-					<div class="banner-grid">
-						<h2>Featured Products</h2>
-						<div class="wome">
-							<a href="single.html"><img class="img-responsive" src="images/bi.jpg" alt="" />
-							</a>
-							<div class="women simpleCart_shelfItem">
-								<a href="#"><img src="images/ll.png" alt=""></a>
-								<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-								<p class="ba-price"><del>$100.00</del><em class="item_price">$70.00</em></p>
-								<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="banner-grid">
-						<h2>Featured Products</h2>
-						<div class="wome">
-							<a href="single.html"><img class="img-responsive" src="images/bi2.jpg" alt="" />
-							</a>
-							<div class="women simpleCart_shelfItem">
-								<a href="#"><img src="images/ll.png" alt=""></a>
-								<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-								<p class="ba-price"><del>$100.00</del><em class="item_price">$70.00</em></p>
-								<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-							</div>
-						</div>
-					</div>
-				</li>
+
+
+
 
 
 			</ul>
@@ -405,73 +378,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div>
 		<div class="col-md-7 col-md2 animated wow fadeInRight" data-wow-delay=".1s">
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
+			<div class="col-sm-4 item-grid simpleCart_shelfItem" th:each="mostQuantityPhone: ${mostQuantityPhones}">
 				<div class="grid-pro">
 					<div class=" grid-product ">
 						<figure>
-							<a href="single.html">
+							<a href="#">
 								<div class="grid-img">
-									<img src="images/pr1.jpg" class="img-responsive" alt="">
+									<img th:src="${mostQuantityPhone.image}" class="img-responsive" alt="">
 								</div>
 								<div class="grid-img">
-									<img src="images/pr.jpg" class="img-responsive" alt="">
+									<img th:src="${mostQuantityPhone.image}" class="img-responsive" alt="">
 								</div>
 							</a>
 						</figure>
 					</div>
 					<div class="women">
 						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
+						<h6><a href="#" th:text="${mostQuantityPhone.name}"></a></h6>
+						<p ><del th:text=  "'$'+${mostQuantityPhone.oldPrice}"></del><em class="item_price" th:text=  "'$'+${mostQuantityPhone.price}"></em></p>
 						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
-				<div class="grid-pro">
-					<div class=" grid-product ">
-						<figure>
-							<a href="single.html">
-								<div class="grid-img">
-									<img src="images/pr3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="grid-img">
-									<img src="images/pr2.jpg" class="img-responsive" alt="">
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="women">
-						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
-				<div class="grid-pro">
-					<div class=" grid-product ">
-						<figure>
-							<a href="single.html">
-								<div class="grid-img">
-									<img src="images/pr5.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="grid-img">
-									<img src="images/pr4.jpg" class="img-responsive" alt="">
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="women">
-						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-					</div>
-				</div>
-			</div>
+
+
 			<div class="clearfix"></div>
 		</div>
 		<div class="clearfix"></div>
@@ -480,70 +411,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!---->
 	<div class="content-top">
 		<div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
+			<div class="col-sm-4 item-grid simpleCart_shelfItem" th:each="newestPhone: ${newestPhones}">
 				<div class="grid-pro">
 					<div class=" grid-product ">
 						<figure>
 							<a href="single.html">
 								<div class="grid-img">
-									<img src="images/pr6.jpg" class="img-responsive" alt="">
+									<img th:src="${newestPhone.image}" class="img-responsive" alt="">
 								</div>
 								<div class="grid-img">
-									<img src="images/pr7.jpg" class="img-responsive" alt="">
+									<img th:src="${newestPhone.image}" class="img-responsive" alt="">
 								</div>
 							</a>
 						</figure>
 					</div>
 					<div class="women">
 						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
-				<div class="grid-pro">
-					<div class=" grid-product ">
-						<figure>
-							<a href="single.html">
-								<div class="grid-img">
-									<img src="images/pr9.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="grid-img">
-									<img src="images/pr8.jpg" class="img-responsive" alt="">
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="women">
-						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 item-grid simpleCart_shelfItem">
-				<div class="grid-pro">
-					<div class=" grid-product ">
-						<figure>
-							<a href="single.html">
-								<div class="grid-img">
-									<img src="images/pr10.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="grid-img">
-									<img src="images/pr11.jpg" class="img-responsive" alt="">
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="women">
-						<a href="#"><img src="images/ll.png" alt=""></a>
-						<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-						<p><del>$100.00</del><em class="item_price">$70.00</em></p>
+						<h6><a href="#" th:text=  "${newestPhone.name}">Sed ut perspiciatis unde</a></h6>
+						<p ><del th:text=  "'$'+${newestPhone.oldPrice}"></del><em class="item_price" th:text=  "'$'+${newestPhone.price}"></em></p>
 						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 					</div>
 				</div>
