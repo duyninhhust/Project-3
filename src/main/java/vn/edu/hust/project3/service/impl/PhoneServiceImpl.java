@@ -12,6 +12,8 @@ import vn.edu.hust.project3.repository.PhoneRepository;
 import vn.edu.hust.project3.service.PhoneService;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,7 @@ public class PhoneServiceImpl implements PhoneService {
 
     @Override
     public Phone createPhone(Phone phone) {
+        phone.setCreatedDate(LocalDate.now());
         return phoneRepository.save(phone);
     }
 

@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -48,7 +49,7 @@ public class Phone {
     @Column(name = "pin_charger")
     private String pinCharger;
     @Column(name = "created_date", columnDefinition = "DATE")
-    private String createdDate;
+    private LocalDate createdDate;
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
