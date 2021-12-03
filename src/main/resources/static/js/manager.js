@@ -75,18 +75,26 @@ function deleteManyPhone(id){
                         title: 'Thông báo',
                         text: 'Xóa thành công',
                         icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then(function () {
-                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
-                    })
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    }).then(
+                        setTimeout(function() {
+                            Swal.close();
+                            window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                        }, 1000)
+                    )
                 } else {
                     Swal.fire({
                         title: 'Thông báo',
                         text: 'Có lỗi khi xóa ',
                         icon: 'error',
-                        confirmButtonText: 'OK'
+                        showCancelButton: false,
+                        showConfirmButton: false
                     }).then(function () {
-                        window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                        setTimeout(function() {
+
+                            window.location.href= "/manage-phone/1?sortField=id&sortDir=asc";
+                        }, 1000);
                     })
                 }
 

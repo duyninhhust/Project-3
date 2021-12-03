@@ -353,10 +353,41 @@ ul li {
 /*-- /banner section --*/
 
 .banner{
-    min-height: 590px;
-    background:  url(../images/15.jpg) no-repeat;
+    min-height: 400px;
+    /*background:  url(../images/phone_image/renno6-seri-830-300-830x300-3.png) no-repeat;*/
 	width:100%;
-	background-size:cover;
+
+    display:flex;
+}
+.banner-big{
+    width:100%;
+;
+    background:  url(../images/phone_image/oppo-a95-4g-tongquan-1020x570-1.jpg) no-repeat;
+    background-size:100% 100%;
+
+}
+.phone-item{
+    /*background: beige;*/
+    background: white;
+    padding: 15px;
+}
+.banner-super{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+.banner-super h1{
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 20px;
+    padding: 0 200px;
+}
+.content-head-sub{
+    background:  url(../images/phone_image/vn-feature-lots-of-memory-plus-room-for-more-515904798.png) no-repeat;
+    background-size:100% 100%;
+    width:100%;
+    min-height: 600px;
 }
 .ba-price{
 	line-height:1.3em ;
@@ -1185,6 +1216,9 @@ text-align: center;
 }
 .contact-form2 {
     margin-bottom: 2em;
+}
+.content-top{
+    /*background-color: #2b24333b;*/
 }
 /*----*/
 .contact-grid2{
