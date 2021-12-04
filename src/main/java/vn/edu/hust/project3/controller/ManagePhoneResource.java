@@ -92,8 +92,6 @@ public class ManagePhoneResource {
             rs = Alert.ERROR;
         }
         return rs;
-        // ông xử lí đoạn này sao cho nó có thông báo xóa
-        // t viết thêm cái này vì cái trc ông làm bắt buộc phải checked mới xóa đc
     }
 
 

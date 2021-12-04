@@ -5,9 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
-<html>
-<head>
-<title>Classic Style a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+<title>Login</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,19 +15,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{css/style2.css}" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-<script src="js/jquery.min.js"></script>
+<script th:src="@{js/jquery.min.js}"></script>
 <!-- //js -->
 <!-- cart -->
-<script src="js/simpleCart.min.js"></script>
+<script th:src="@{js/simpleCart.min.js}"></script>
 <!-- cart -->
 <!-- for bootstrap working -->
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" th:src="@{js/bootstrap-3.1.1.min.js}"></script>
 <!-- //for bootstrap working -->
 <!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet"> 
+<link th:href="@{css/animate.min.css}" rel="stylesheet">
 <script src="js/wow.min.js"></script>
 <script>
  new WOW().init();
@@ -54,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="header-right1 ">
 					<ul>
 		
-						<li><i class="glyphicon glyphicon-log-in" ></i><a href="login.html">Login</a></li>
-						<li><i class="glyphicon glyphicon-book" ></i><a href="register.html">Register</a></li>
+						<li><i class="glyphicon glyphicon-log-in" ></i><a href="/login">Login</a></li>
+						<li><i class="glyphicon glyphicon-book" ></i><a href="/signup">Register</a></li>
 					</ul>
 				</div>
 				<div class="header-right2">
@@ -88,13 +87,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="icon-bar"></span>
 						</button>
 						 <div class="navbar-brand logo-nav-left wow fadeInLeft animated" data-wow-delay=".5s">
-							<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Classic<span>Style</span></a></h1>
+							<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="/">Classic<span>Style</span></a></h1>
 						</div>
 
 					</div> 
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li ><a href="index.html" class="act">Home</a></li>	
+							<li ><a href="/" class="act">Home</a></li>
 							<!-- Mega Menu -->
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
@@ -222,14 +221,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- contact -->
 	<div class="login">
 		<div class="container">
-		<form>
+		<form action="/authentication" method="post">
+			<div th:if="${#request.getParameter('error') == 'true'}"
+				 style="color:red;margin:10px 0 0 20px;font-weight: bold">
+				Username or password is incorrect
+			</div>
 			<div class="col-md-6 login-do1 animated wow fadeInLeft" data-wow-delay=".5s">
 				<div class="login-mail">
-					<input type="text" placeholder="Email" required="">
+					<input type="text" name="username" placeholder="UserName" required="">
 					<i class="glyphicon glyphicon-envelope"></i>
 				</div>
 				<div class="login-mail">
-					<input type="password" placeholder="Password" required="">
+					<input type="password" name="password" placeholder="Password" required="">
 					<i class="glyphicon glyphicon-lock"></i>
 				</div>
 				   <a class="news-letter " href="#">
@@ -243,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="submit" value="login">
 					</label>
 					<p>Do not have an account?</p>
-				<a href="register.html" class="hvr-sweep-to-top">Signup</a>
+				<a href="signup" class="hvr-sweep-to-top">Signup</a>
 			</div>
 			
 			<div class="clearfix"> </div>

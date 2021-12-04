@@ -106,6 +106,11 @@ public class PhoneServiceImpl implements PhoneService {
         return phoneRepository.findPhoneByPrice(p1, p2);
     }
 
+    @Override
+    public List<Phone> getPhoneByCategory(int id) {
+        return phoneRepository.findPhoneByCategoryId(id);
+    }
+
     private Phone findProductById(int id) {
         Optional<Phone> optional = phoneRepository.findById(id);
         if (!optional.isPresent()) {

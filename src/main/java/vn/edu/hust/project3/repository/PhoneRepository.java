@@ -24,6 +24,9 @@ public interface PhoneRepository extends JpaRepository<Phone, Integer> {
     @Query(value = "SELECT * FROM Phone p WHERE p.name LIKE %?1% " , nativeQuery = true)
     List<Phone> findPhoneByName(String name);
 
-    @Query(value = "SELECT * FROM Product p WHERE p.price >= ?1 AND p.price <= ?2 ", nativeQuery = true)
+    @Query(value = "SELECT * FROM Phone p WHERE p.price >= ?1 AND p.price <= ?2 ", nativeQuery = true)
     List<Phone> findPhoneByPrice(double p1, double p2);
+
+    @Query(value = "SELECT p from Phone p where p.category.id = ?1")
+    List<Phone> findPhoneByCategoryId(int id);
 }
