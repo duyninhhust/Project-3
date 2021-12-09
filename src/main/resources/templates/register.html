@@ -5,9 +5,9 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Classic Style a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Register :: w3layouts</title>
+<title>Register</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,20 +16,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{css/style2.css}" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-<script src="js/jquery.min.js"></script>
+<script th:src="@{js/jquery.min.js}"></script>
 <!-- //js -->
 <!-- cart -->
-<script src="js/simpleCart.min.js"></script>
+<script th:src="@{js/simpleCart.min.js}"></script>
 <!-- cart -->
 <!-- for bootstrap working -->
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" th:src="@{js/bootstrap-3.1.1.min.js}"></script>
 <!-- //for bootstrap working -->
 <!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet"> 
-<script src="js/wow.min.js"></script>
+<link th:href="@{css/animate.min.css}" rel="stylesheet">
+<script th:src="@{js/wow.min.js}"></script>
 <script>
  new WOW().init();
 </script>
@@ -54,8 +54,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="header-right1 ">
 					<ul>
 		
-						<li><i class="glyphicon glyphicon-log-in" ></i><a href="login.html">Login</a></li>
-						<li><i class="glyphicon glyphicon-book" ></i><a href="register.html">Register</a></li>
+						<li><i class="glyphicon glyphicon-log-in" ></i><a href="/login">Login</a></li>
+						<li><i class="glyphicon glyphicon-book" ></i><a href="/signup">Register</a></li>
 					</ul>
 				</div>
 				<div class="header-right2">
@@ -221,19 +221,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- contact -->
 	<div class="login">
 		<div class="container">
-		<form>
+			<div th:text="${message}" style="color:red;margin:10px 0 0 20px;font-weight: bold"></div>
+		<form action="signup" method="post">
 			<div class="col-md-6 login-do1 animated wow fadeInLeft" data-wow-delay=".5s">
 				<div class="login-mail">
-					<input type="text" placeholder="Email" required="">
+					<input type="text" name="username" placeholder="UserName" required="">
+					<i class="glyphicon glyphicon-user"></i>
+				</div>
+				<div class="login-mail">
+					<input type="password"  name="password" placeholder="Password" required="">
+					<i class="glyphicon glyphicon-lock"></i>
+				</div>
+				<div class="login-mail">
+					<input type="password"  name="matchingPassword" placeholder="Repeated password" required="">
+					<i class="glyphicon glyphicon-lock"></i>
+				</div>
+				<div class="login-mail">
+					<input type="text"  name="email" placeholder="Email" required="">
 					<i class="glyphicon glyphicon-envelope"></i>
-				</div>
-				<div class="login-mail">
-					<input type="password" placeholder="Password" required="">
-					<i class="glyphicon glyphicon-lock"></i>
-				</div>
-				<div class="login-mail">
-					<input type="password" placeholder="Repeated password" required="">
-					<i class="glyphicon glyphicon-lock"></i>
 				</div>
 				  <a class="news-letter" href="#">
 						 <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>I agree with the terms</label>
@@ -242,10 +247,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-6 login-do animated wow fadeInRight" data-wow-delay=".5s">
 				<label class="hvr-sweep-to-top login-sub">
-					<input type="submit" value="Submit">
+					<input type="submit" value="SignUp">
 					</label>
 					<p>Already register</p>
-				<a href="login.html" class="hvr-sweep-to-top">Login</a>
+				<a href="/login" class="hvr-sweep-to-top">Login</a>
 			</div>
 			<div class="clearfix"> </div>
 			</form>

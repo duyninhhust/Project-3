@@ -21,11 +21,15 @@ public class User {
     private String password;
     @Column(name = "Email",nullable = false)
     private String email;
-    @Column
-    private double balance;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    public User(String username, String password, String email, Role role) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+    }
 }

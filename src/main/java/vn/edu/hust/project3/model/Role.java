@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +18,4 @@ public class Role {
     private int id;
     @Column(name = "Name", nullable = false)
     private String name;
-    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
 }

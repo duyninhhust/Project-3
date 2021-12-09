@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+import vn.edu.hust.project3.model.Alert;
 import vn.edu.hust.project3.model.Category;
 import vn.edu.hust.project3.model.Phone;
 import vn.edu.hust.project3.service.CategoryService;
@@ -80,19 +81,32 @@ public class ManagePhoneResource {
         return redirectView;
     }
 
-    @GetMapping("/delete-one-phone")
+    @DeleteMapping("/delete-one-phone")
+    @ResponseBody
     String deletePhone(@RequestParam(value = "id") Integer id){
-        phoneService.deletePhone(id);
-        return "redirect:/manage-phone/1?sortField=id&sortDir=asc";
-        // ông xử lí đoạn này sao cho nó có thông báo xóa
-        // t viết thêm cái này vì cái trc ông làm bắt buộc phải checked mới xóa đc
+        String rs = "";
+        try{
+            phoneService.deletePhone(id);
+            rs = Alert.SUCCESS;
+        } catch (Exception e){
+            rs = Alert.ERROR;
+        }
+        return rs;
     }
 
 
     @DeleteMapping("/delete-phone")
-    void deletePhones(@RequestParam("phoneIds[]") String[] phoneIds){
-        for (String id : phoneIds) {
-            phoneService.deletePhone(Integer.parseInt(id));
+    @ResponseBody
+    String deletePhones(@RequestParam("phoneIds[]") String[] phoneIds, RedirectAttributes redirectAttributes){
+        String rs = "";
+        try{
+            for (String id : phoneIds) {
+                phoneService.deletePhone(Integer.parseInt(id));
+            }
+            rs = Alert.SUCCESS;
+        } catch (Exception e){
+            rs = Alert.ERROR;
         }
+        return rs;
     }
 }
