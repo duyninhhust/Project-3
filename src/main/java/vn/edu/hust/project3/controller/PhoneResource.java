@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class PhoneController {
+public class PhoneResource {
 
     private final PhoneService phoneService;
     private final CategoryService categoryService;
@@ -23,7 +23,7 @@ public class PhoneController {
     @GetMapping("/detail-phone")
     String DetailPhone(Model model){
 
-        return "product";
+        return "single";
     }
 
     @GetMapping("/all-phone")
