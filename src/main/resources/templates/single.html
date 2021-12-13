@@ -1,13 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
-<title>Classic Style a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
+<title th:text="${phone.getName()}"></title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,21 +9,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script src="js/jquery.min.js"></script>
-<!-- //js -->
-<!-- cart -->
-<script src="js/simpleCart.min.js"></script>
-<!-- cart -->
-<!-- for bootstrap working -->
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-<!-- //for bootstrap working -->
-<!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet"> 
-<script src="js/wow.min.js"></script>
+	<!-- //for-mobile-apps -->
+	<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+	<link th:href="@{/css/style2.css}" rel="stylesheet" type="text/css" media="all" />
+	<!-- js -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<!-- //js -->
+	<!-- cart -->
+	<script th:src="@{/js/simpleCart.min.js}"></script>
+	<!-- cart -->
+	<!-- for bootstrap working -->
+	<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+	<!-- //for bootstrap working -->
+	<!-- animation-effect -->
+	<link th:href="@{/css/animate.min.css}" rel="stylesheet">
+	<script th:src="@{/js/wow.min.js}"></script>
 <script>
  new WOW().init();
 </script>
@@ -40,40 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- header -->
 	<div class="header">
-			<div class="header-grid">
-					<div class="container">
-				<div class="header-left animated wow fadeInLeft" data-wow-delay=".5s">
-					<ul>
-					<li><i class="glyphicon glyphicon-headphones"></i><a href="#">24x7 live support</a></li>
-						<li><i class="glyphicon glyphicon-envelope" ></i><a href="mailto:info@example.com">@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" ></i>+1234 567 892</li>
-						
-					</ul>
-				</div>
-				<div class="header-right animated wow fadeInRight" data-wow-delay=".5s">
-				<div class="header-right1 ">
-					<ul>
-		
-						<li><i class="glyphicon glyphicon-log-in" ></i><a href="Login.html">Login</a></li>
-						<li><i class="glyphicon glyphicon-book" ></i><a href="register.html">Register</a></li>
-					</ul>
-				</div>
-				<div class="header-right2">
-					<div class="cart box_1">
-						<a href="checkout.html">
-							<h3> <div class="total">
-								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-								<img src="images/cart.png" alt="" />
-							</h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-						<div class="clearfix"> </div>
-					</div>	
-				</div>
-				<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+		<div th:insert="~{Menu.html}"></div>
 			</div>
 			<div class="container">
 			<div class="logo-nav">
@@ -224,50 +185,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 		<div class="col-md-3 product-bottom ">
 			<!--categories-->
-			<div class="categories animated wow fadeInUp animated" data-wow-delay=".5s" >
-					<h3>Categories</h3>
-					<ul class="cate">
-						<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Best Selling</a> <span>(15)</span></li>
-						<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Man</a> <span>(16)</span></li>
-							<ul>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Accessories</a> <span>(2)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Coats &amp; Jackets</a> <span>(5)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Jeans</a> <span>(1)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">New Arrivals</a> <span>(0)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Suits</a> <span>(1)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Casual Shirts</a> <span>(0)</span></li>
-							</ul>
-						<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Sales</a> <span>(15)</span></li>
-						<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Woman</a> <span>(15)</span></li>
-							<ul>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Accessories</a> <span>(2)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">New Arrivals</a> <span>(0)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Dresses</a> <span>(1)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Casual Shirts</a> <span>(0)</span></li>
-								<li><i class="glyphicon glyphicon-menu-right" ></i><a href="products.html">Shorts</a> <span>(4)</span></li>
-							</ul>
-					</ul>
-				</div>
+			<div class="categories animated wow fadeInUp animated" data-wow-delay=".5s">
+				<h3><a href="/all-phone" style="text-decoration: none; color: white">Categories</a></h3>
+				<ul class="cate" th:each="category : ${categories}">
+					<li><i class="glyphicon glyphicon-menu-right"></i><a th:href="@{category(id=${category.getId()})}" th:text="${category.getName()}"></a>
+						<span>(15)</span></li>
+				</ul>
+			</div>
 		<!--//menu-->
-		<!--price-->
-				<div class="price animated wow fadeInUp animated" data-wow-delay=".5s" >
-					<h3>Price Range</h3>
-					<div class="price-head">
+			<!--price-->
+			<div class="price animated wow fadeInUp animated" data-wow-delay=".5s">
+				<h3>Price Range</h3>
+				<form class="price-head" action="/phones">
 					<div class="col-md-6 price-head1">
-                                        <div class="price-top1">
-                                            <span class="price-top">$</span>
-                                            <input type="text"  value="0">
-                                        </div>
-                                    </div>
-									<div class="col-md-6 price-head2">
-                                        <div class="price-top1">
-                                            <span class="price-top">$</span>
-                                            <input type="text"  value="500">
-                                        </div>
-                                    </div>
-									<div class="clearfix"></div>
-                                    </div>
-                                    </div>
+						<div class="price-top1">
+							<span class="price-top">$</span>
+							<input type="text" name="minPrice" value="0">
+						</div>
+					</div>
+					<div class="col-md-6 price-head2">
+						<div class="price-top1">
+							<span class="price-top">$</span>
+							<input type="text" name="maxPrice" value="500">
+						</div>
+					</div>
+					<div class="col-md-6 price-head2">
+						<div class="active" style="margin: 7px 0 0 87px;">
+							<input type="submit" value="submit">
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+				</form>
+			</div>
 			<!--//price-->
 			<!--colors-->
 			<div class="colors animated wow fadeInLeft animated" data-wow-delay=".5s" >
@@ -289,62 +239,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
                                  
 			<!--//colors-->
-			<div class="sellers animated wow fadeInDown" data-wow-delay=".5s">
-					
-								<h3 class="best">BEST SELLERS</h3>
-					<div class="product-head">
-					<div class="product-go">
+			<div class="sellers animated wow fadeInUp" data-wow-delay=".5s">
+
+				<h3 class="best">BEST SELLERS</h3>
+				<div class="product-head">
+					<div class="product-go" th:each="newPhone : ${newestPhone}">
 						<div class=" fashion-grid">
-									<a href="single.html"><img class="img-responsive " src="images/pcc.jpg" alt=""></a>
-									
-								</div>
-							<div class=" fashion-grid1">
-								<h6 class="best2"><a href="single.html">Lorem ipsum </a></h6>
-								<span class=" price-in1"> <del>$50.00</del>$40.00</span>
-								<p>The standard chunk of Lorem Ipsum used</p>
-							</div>
-								
-							<div class="clearfix"> </div>
-							</div>
-							<div class="product-go">
-						<div class=" fashion-grid">
-									<a href="single.html"><img class="img-responsive " src="images/pcc1.jpg" alt=""></a>
-									
-								</div>
-							<div class=" fashion-grid1">
-								<h6 class="best2"><a href="single.html">Lorem ipsum </a></h6>
-								<span class=" price-in1"> <del>$50.00</del>$40.00</span>
-								<p>The standard chunk of Lorem Ipsum used</p>
-							</div>
-							<div class="clearfix"> </div>
-							</div>
-							
-							</div>
+							<a href="single.html"><img class="img-responsive " th:src="${newPhone.getImage()}" alt=""></a>
+
+						</div>
+						<div class=" fashion-grid1">
+							<h9 class="best2"><a href="single.html" th:text="${newPhone.getName()}"> </a></h9>
+							<p><del th:text="${newPhone.getOldPrice()}"></del><em class="item_price" th:text="${newPhone.getPrice()}"></em></p>
+							<p>The standard chunk of Lorem Ipsum used</p>
+						</div>
+
+						<div class="clearfix"> </div>
+					</div>
+
+
 				</div>
+			</div>
 				<!---->
  	</div>
 			<div class="col-md-9 animated wow fadeInRight" data-wow-delay=".5s">
 				<div class="col-md-5 grid-im">		
 		<div class="flexslider">
-			  <ul class="slides">
+			  <ul class="slides" th:object="${phone}">
 			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+			        <div class="thumb-image"> <img th:src="${phone.getImage()}" data-imagezoom="true" class="img-responsive"> </div>
 			    </li>
-			    <li data-thumb="images/si1.jpg">
-			         <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-			    </li>
-			    <li data-thumb="images/si2.jpg">
-			       <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-			    </li> 
+<!--			    <li data-thumb="images/si1.jpg">-->
+<!--			         <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>-->
+<!--			    </li>-->
+<!--			    <li data-thumb="images/si2.jpg">-->
+<!--			       <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>-->
+<!--			    </li> -->
 			  </ul>
 		</div>
-	</div>	
+	</div>
 <div class="col-md-7 single-top-in">
 						<div class="span_2_of_a1 simpleCart_shelfItem">
-				<h3>Nam liber tempor cum</h3>
+				<h3 th:text="${phone.getName()}"></h3>
 				<p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
 			    <div class="price_single">
-				  <span class="reducedfrom item_price">$140.00</span>
+				  <span class="reducedfrom item_price" th:text="${phone.getPrice() + ' $'}"></span>
 				 <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 				 <div class="clearfix"></div>
 				</div>
@@ -358,14 +297,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 						  <ul class="resp-tabs-list">
 						  	  <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>Product Description</span></li>
-							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Additional Information</span></li>
-							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Reviews</span></li>
 							  <div class="clearfix"></div>
 						  </ul>				  	 
 							<div class="resp-tabs-container">
 							    <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Description</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
 									<div class="facts">
-									  <p > There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration </p>
+									  <p th:text="${phone.getIntroduction()}"></p>
 										<ul>
 											<li>Research</li>
 											<li>Design and Development</li>
@@ -377,36 +314,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							        </div>
 
 							    	</div>
-							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>Additional Information</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-										<div class="facts1">
-					
-						<div class="color"><p>Color</p>
-							<span >Blue, Black, Red</span>
-							<div class="clearfix"></div>
-						</div>
-						<div class="color">
-							<p>Size</p>
-							<span >S, M, L, XL</span>
-							<div class="clearfix"></div>
-						</div>
-					        
-			 </div>
-
-								</div>									
-							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>Reviews</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-									 <div class="comments-top-top">
-				<div class="top-comment-left">
-					<img class="img-responsive" src="images/co.png" alt="">
-				</div>
-				<div class="top-comment-right">
-					<h6><a href="#">Hendri</a> - September 3, 2014</h6>
-					
-									<p>Wow nice!</p>
-				</div>
-				<div class="clearfix"> </div>
-				<a class="add-re" href="single.html">Add Review</a>
-			</div>
-
 
 							 </div>
 					      </div>
@@ -420,85 +327,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			            fit: true   // 100% fit in a container
 			        });
 			    });
-			   </script>	
-<!---->
-					</div>
+			   </script>
+
 			
 </div>
-<!----->
-<div class="clearfix"> </div>
-<div class=" col-md-si">
-						<div class="col-sm-4 item-grid simpleCart_shelfItem">
-							<div class="grid-pro">
-								<div  class=" grid-product " >
-									<figure>		
-										<a href="single.html">
-											<div class="grid-img">
-												<img  src="images/pr1.jpg" class="img-responsive" alt="">
-											</div>
-											<div class="grid-img">
-												<img  src="images/pr.jpg" class="img-responsive"  alt="">
-											</div>			
-										</a>		
-									</figure>	
-								</div>
-								<div class="women">
-									<a href="#"><img src="images/ll.png" alt=""></a>
-									<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-									<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
-									<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-								</div>
-							</div>
-						</div>
-				
-						<div class="col-sm-4 item-grid simpleCart_shelfItem">
-							<div class="grid-pro">
-								<div  class=" grid-product " >
-									<figure>		
-										<a href="single.html">
-											<div class="grid-img">
-												<img  src="images/pr3.jpg" class="img-responsive" alt="">
-											</div>
-											<div class="grid-img">
-												<img  src="images/pr2.jpg" class="img-responsive"  alt="">
-											</div>			
-										</a>		
-									</figure>	
-								</div>
-								<div class="women">
-									<a href="#"><img src="images/ll.png" alt=""></a>
-									<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-									<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
-									<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 item-grid simpleCart_shelfItem">
-						<div class="grid-pro">
-								<div  class=" grid-product " >
-									<figure>		
-										<a href="single.html">
-											<div class="grid-img">
-												<img  src="images/pr5.jpg" class="img-responsive" alt="">
-											</div>
-											<div class="grid-img">
-												<img  src="images/pr4.jpg" class="img-responsive"  alt="">
-											</div>			
-										</a>		
-									</figure>	
-								</div>
-								<div class="women">
-									<a href="#"><img src="images/ll.png" alt=""></a>
-									<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
-									<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
-									<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-		</div>
-			</div class="clearfix"></div>
-			</div>			
+			</div>
 		</div>
 				<!--//products-->
 <div class="social animated wow fadeInUp" data-wow-delay=".1s">
@@ -581,6 +414,6 @@ $(window).load(function() {
 });
 </script>
 
-
+		</div>
 </body>
 </html>

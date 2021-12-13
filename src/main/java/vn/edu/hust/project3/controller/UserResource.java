@@ -15,7 +15,7 @@ import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
-public class UserController {
+public class UserResource {
 
     private final UserRepository userRepository;
 

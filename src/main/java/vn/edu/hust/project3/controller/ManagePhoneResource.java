@@ -69,11 +69,11 @@ public class ManagePhoneResource {
         RedirectView redirectView;
         String alert = "";
         if(phone.getId() != 0){
-            Phone updatedPhone = phoneService.updatePhone(phone.getId(), phone);
+            phoneService.updatePhone(phone.getId(), phone);
             alert = "Chỉnh sửa thông tin sản phẩm thành công";
             redirectView = new RedirectView("/manage-phone/1?sortField=id&sortDir=asc" , true);
         } else {
-            Phone newPhone = phoneService.createPhone(phone);
+            phoneService.createPhone(phone);
             alert = "Thêm mới sản phẩm thành công";
             redirectView = new RedirectView("/manage-phone/1?sortField=id&sortDir=asc", true);
         }

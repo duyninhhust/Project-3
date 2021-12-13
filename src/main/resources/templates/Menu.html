@@ -1,0 +1,48 @@
+<div class="header-grid" xmlns:sec="http://www.w3.org/1999/xhtml">
+  <div class="container">
+    <div class="header-left animated wow fadeInLeft" data-wow-delay=".5s">
+      <ul>
+        <li><i class="glyphicon glyphicon-headphones"></i><a href="#">24x7 live support</a></li>
+        <li><i class="glyphicon glyphicon-envelope"></i><a
+                href="mailto:info@example.com">DA3@example.com</a></li>
+        <li><i class="glyphicon glyphicon-earphone"></i>+1234 567 892</li>
+
+      </ul>
+    </div>
+    <div class="header-right animated wow fadeInRight" data-wow-delay=".5s">
+      <div class="header-right1 ">
+        <ul>
+          <li style="color: white; margin-left: 10px" >Hi,
+            <a href="@{/user}" th:text="${#request.userPrincipal.getName()}"  sec:authorize="hasAuthority('member')"style="color: white">
+              <span class="glyphicon glyphicon-user"></span> </a>
+            <a th:href="@{'/manage-phone/1' + '?sortField=id'  + '&sortDir=asc'}" th:text="${#request.userPrincipal.getName()}"
+               sec:authorize="hasAuthority('admin')"style="  color: white">
+              <span class="glyphicon glyphicon-user"></span> </a>
+            <span th:if="${#request.userPrincipal == null}">Guest</span>
+          </li>
+          <li th:if="${#request.userPrincipal == null}"><i class="glyphicon glyphicon-log-in"></i><a href="/login">Login</a></li>
+          <!--							<li th:if="${#request.userPrincipal == null}"><i class="glyphicon glyphicon-book"></i><a href="/signup">Register</a></li>-->
+          <li th:if="${#request.userPrincipal != null}"><i class="fas fa-sign-out-alt"></i><a href="/logout">Logout</a></li>
+
+        </ul>
+      </div>
+      <div class="header-right2">
+        <div class="cart box_1">
+          <a href="checkout.html">
+            <h3>
+              <div class="total">
+                <span class="simpleCart_total"></span> (<span id="simpleCart_quantity"
+                                                              class="simpleCart_quantity"></span> items)
+              </div>
+              <img src="images/cart.png" alt="" />
+            </h3>
+          </a>
+          <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
