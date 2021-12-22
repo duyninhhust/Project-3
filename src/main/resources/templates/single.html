@@ -24,6 +24,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- animation-effect -->
 	<link th:href="@{/css/animate.min.css}" rel="stylesheet">
 	<script th:src="@{/js/wow.min.js}"></script>
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+	</style>
 <script>
  new WOW().init();
 </script>
@@ -49,13 +66,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="icon-bar"></span>
 						</button>
 						 <div class="navbar-brand logo-nav-left wow fadeInLeft animated" data-wow-delay=".5s">
-							<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Classic<span>Style</span></a></h1>
+							<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="/">Classic<span>Style</span></a></h1>
 						</div>
 
 					</div> 
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li ><a href="index.html" class="act">Home</a></li>	
+							<li ><a href="/" class="act">Home</a></li>
 							<!-- Mega Menu -->
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
@@ -176,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner-top">
 	<div class="container">
 		<h2 class="animated wow fadeInLeft" data-wow-delay=".5s">Single</h2>
-		<h3 class="animated wow fadeInRight" data-wow-delay=".5s"><a href="index.html">Home</a><label>/</label>Single</h3>
+		<h3 class="animated wow fadeInRight" data-wow-delay=".5s"><a href="/">Home</a><label>/</label>Single</h3>
 		<div class="clearfix"> </div>
 	</div>
 </div>
@@ -188,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="categories animated wow fadeInUp animated" data-wow-delay=".5s">
 				<h3><a href="/all-phone" style="text-decoration: none; color: white">Categories</a></h3>
 				<ul class="cate" th:each="category : ${categories}">
-					<li><i class="glyphicon glyphicon-menu-right"></i><a th:href="@{category(id=${category.getId()})}" th:text="${category.getName()}"></a>
+					<li><i class="glyphicon glyphicon-menu-right"></i><a th:href="@{/category(id=${category.getId()})}" th:text="${category.getName()}"></a>
 						<span>(15)</span></li>
 				</ul>
 			</div>
@@ -245,11 +262,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-head">
 					<div class="product-go" th:each="newPhone : ${newestPhone}">
 						<div class=" fashion-grid">
-							<a href="single.html"><img class="img-responsive " th:src="${newPhone.getImage()}" alt=""></a>
+							<a th:href="@{'/all-phone/' + ${newPhone.getId()}}"><img class="img-responsive " th:src="${newPhone.getImage()}" alt=""></a>
 
 						</div>
 						<div class=" fashion-grid1">
-							<h9 class="best2"><a href="single.html" th:text="${newPhone.getName()}"> </a></h9>
+							<h9 class="best2"><a th:href="@{'/all-phone/' + ${newPhone.getId()}}" th:text="${newPhone.getName()}"> </a></h9>
 							<p><del th:text="${newPhone.getOldPrice()}"></del><em class="item_price" th:text="${newPhone.getPrice()}"></em></p>
 							<p>The standard chunk of Lorem Ipsum used</p>
 						</div>
@@ -318,6 +335,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 </div>
 					      </div>
 					 </div>
+
+	<table>
+		<tr>
+			<td>Screen: </td>
+			<td th:text="${phone.getScreen()}"></td>
+		</tr>
+		<tr>
+			<td>Operating system: </td>
+			<td th:text="${phone.getOperatingSystem()}"></td>
+		</tr>
+		<tr>
+			<td>Rear Camera: </td>
+			<td th:text="${phone.getRearCamera()}"></td>
+		</tr>
+		<tr>
+			<td>Front camera:</td>
+			<td th:text="${phone.getFrontCamera()}"></td>
+		</tr>
+		<tr>
+			<td>Chip:</td>
+			<td th:text="${phone.getChip()}"></td>
+		</tr>
+		<tr>
+			<td>RAM:</td>
+			<td th:text="${phone.getRam()}"></td>
+		</tr>
+		<tr>
+			<td>Internal memory:</td>
+			<td th:text="${phone.getRom()}"></td>
+		</tr>
+		<tr>
+			<td>SIM:</td>
+			<td th:text="${phone.getSim()}"></td>
+		</tr>
+		<tr>
+			<td>Rechargeable batteries:</td>
+			<td th:text="${phone.getPinCharger()}"></td>
+		</tr>
+	</table>
+
+
 					 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 		    <script type="text/javascript">
 			    $(document).ready(function () {

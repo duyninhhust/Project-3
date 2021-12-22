@@ -19,7 +19,7 @@ public interface PhoneService {
     List<Phone> getFeaturedPhone();
     List<Phone> getMostQuantityPhone();
     List<Phone> getNewestPhone();
-    List<Phone> searchPhoneByName(String name);
+    List<Phone> searchPhone(String name);
     List<Phone> getPhoneByPrice(double p1, double p2);
     List<Phone> getPhoneByCategory(int id);
 }
