@@ -97,8 +97,8 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public List<Phone> searchPhoneByName(String name) {
-        return phoneRepository.findPhoneByName(name);
+    public List<Phone> searchPhone(String name) {
+        return phoneRepository.findPhone(name);
     }
 
     @Override
