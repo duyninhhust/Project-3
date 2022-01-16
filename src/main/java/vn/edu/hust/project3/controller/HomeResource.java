@@ -29,5 +29,10 @@ public class HomeResource {
         return "index";
     }
 
+    @GetMapping("/contact")
+    String contact(){
+        return "contact";
+    }
+
 
 }

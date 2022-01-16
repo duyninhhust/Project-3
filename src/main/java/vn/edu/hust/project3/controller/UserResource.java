@@ -51,7 +51,7 @@ public class UserResource {
 
         if (user == null){
             if (password.equals(repass)){
-                user = new User(userDTO.getUsername(), password, userDTO.getEmail(), roleRepository.getById(2));
+                user = new User(userDTO.getUsername(), password, userDTO.getEmail(), userDTO.getFirstName(), userDTO.getLastName(), roleRepository.getById(2));
                 userRepository.save(user);
                 System.out.println(user);
                 model.addAttribute("message","Sign Up Successful");
