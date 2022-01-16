@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bill Detail</title>
+  <link rel="shortcut icon" href="https://set.hust.edu.vn/storage/logo/set-logo.png"
+        type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link th:href="@{css/manager.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="container">
+  <!-- admin nav   -->
+  <div th:insert="~{AdminNavbar.html}"></div>
+  <!--    -->
+  <a href="/manage-bill/1?sortField=id&sortDir=asc">
+    <button type="button" class="btn btn-primary">Back</button>
+  </a>
+  <h2>Bill Detail</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th style="width: 200px">Id Bill</th>
+      <td th:text="${bill.getId()}"></td>
+    </tr>
+    <tr>
+      <th>Full Name</th>
+      <td th:text="${bill.getName()}"></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>Phone Number</th>
+      <td th:text="${bill.getPhoneNumber()}"></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td th:text="${bill.getAddress()}"></td>
+    </tr>
+    <tr>
+      <th>Order Status</th>
+      <td th:text="${status}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="billdetail : ${billDetail}">
+      <td th:text="${billdetail.getPhone().getId()}"></td>
+      <td th:text="${billdetail.getPhone().getName()}"></td>
+      <td>
+        <img th:src=" ${billdetail.getPhone().getImage()}" alt="" style="width: 70px;height: 70px">
+      </td>
+      <td th:text="${billdetail.getPhone().getPrice()}"></td>
+      <td th:text="${billdetail.getQuantity()}"></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <a th:href="@{/manage-bill/confirm(id=${bill.getId()})}" class="btn btn-info" style="padding: 10px;font-size: 30px;">Confirm</a>
+  <a th:href="@{/manage-bill/cancel(id=${bill.getId()})}" class="btn btn-danger" style="padding: 10px;font-size: 30px;">Cancel</a>
+
+  <p style="font-size: 30px;font-weight: bold;display: inline;float: right" th:text="'Total money: ' + ${totalMoney}+ ' $'"></p>
+</div>
+
+
+</body>
+</html>

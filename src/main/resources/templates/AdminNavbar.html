@@ -6,8 +6,7 @@
         <ul class="nav navbar-nav">
             <li class="" th:class="${pageId == 3} ? 'active': ''"><a th:href="@{'/manage-category'}">Manager Category</a></li>
             <li class="" th:class="${pageId == 1} ? 'active': ''"><a th:href="@{'/manage-phone/1?sortField=id&sortDir=asc'}">Manager Product</a></li>
-
-
+            <li class="" th:class="${pageId == 2} ? 'active': ''"><a th:href="@{'/manage-bill/1?sortField=id&sortDir=asc'}">Manager Bill</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
