@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/login", "/","/register").permitAll();
 
         // Có những quyền Admin, Member sẽ được truy cập
-        http.authorizeRequests().antMatchers("/user/*", "/cart/*", "/checkout","/sendMail","/sendMoney").hasAnyAuthority("admin", "member");
+        http.authorizeRequests().antMatchers("/user","/user/*", "/cart/*", "/checkout","/sendMail").hasAnyAuthority("admin", "member");
 
         //chỉ có quyền Adminmới được truy cập
         http.authorizeRequests().antMatchers("/manage-phone/*","/manage-category/*","manage-bill/*").hasAnyAuthority("admin")

@@ -1,4 +1,4 @@
-<div class="header-grid" xmlns:sec="http://www.w3.org/1999/xhtml">
+<div class="header-grid" xmlns:sec="http://www.w3.org/1999/xhtml" >
   <div class="container">
     <div class="header-left animated wow fadeInLeft" data-wow-delay=".5s">
       <ul>
@@ -12,16 +12,18 @@
     <div class="header-right animated wow fadeInRight" data-wow-delay=".5s">
       <div class="header-right1 ">
         <ul>
-          <li style="color: white; margin-left: 10px" >Hi,
-            <a href="@{/user}" th:text="${#request.userPrincipal.getName()}"  sec:authorize="hasAuthority('member')"style="color: white">
+          <li style="color: white; margin-left: 10px" >
+              <img src="https://lh3.googleusercontent.com/ogw/ADea4I5oA9i854HLvXJy6fv-wRveyE2QPFNmQLdyb8gw=s83-c-mo" style="width: 30px;border-radius: 50%;margin: 0 10px 3px 0;">
+              Hi,
+            <a th:href="@{/user}" th:text="${#request.userPrincipal.getName()}"  sec:authorize="hasAuthority('member')"style="color: white">
               <span class="glyphicon glyphicon-user"></span> </a>
             <a th:href="@{'/manage-phone/1' + '?sortField=id'  + '&sortDir=asc'}" th:text="${#request.userPrincipal.getName()}"
-               sec:authorize="hasAuthority('admin')"style="  color: white">
+               sec:authorize="hasAuthority('admin')"style="color: white">
               <span class="glyphicon glyphicon-user"></span> </a>
             <span th:if="${#request.userPrincipal == null}">Guest</span>
           </li>
           <li th:if="${#request.userPrincipal == null}"><i class="glyphicon glyphicon-log-in"></i><a href="/login">Login</a></li>
-          <!--							<li th:if="${#request.userPrincipal == null}"><i class="glyphicon glyphicon-book"></i><a href="/signup">Register</a></li>-->
+          <!--<li th:if="${#request.userPrincipal == null}"><i class="glyphicon glyphicon-book"></i><a href="/signup">Register</a></li>-->
           <li th:if="${#request.userPrincipal != null}"><i class="fas fa-sign-out-alt"></i><a href="/logout">Logout</a></li>
 
         </ul>

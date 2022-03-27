@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Account</title>
+  <!-- for-mobile-apps -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Classic Style Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!-- //for-mobile-apps -->
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
+  <!-- js -->
+  <script src="js/jquery.min.js"></script>
+  <!-- //js -->
+  <!-- cart -->
+  <script src="js/simpleCart.min.js"></script>
+  <!-- cart -->
+  <!-- for bootstrap working -->
+  <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+  <!-- //for bootstrap working -->
+  <!-- animation-effect -->
+  <link href="css/animate.min.css" rel="stylesheet">
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <!-- //animation-effect -->
+  <link href='//fonts.googleapis.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></head>
+  <style>
+    .btn{
+      min-width: 200px;
+    }
+  </style>
+<body>
+<!-- header -->
+<div class="header">
+  <div th:insert="~{Menu.html}"></div>
+</div>
+<div class="container">
+  <div class="logo-nav">
+
+    <nav class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header nav_2">
+        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand logo-nav-left wow fadeInLeft animated" data-wow-delay=".5s">
+          <h1 class="animated wow pulse" data-wow-delay=".5s"><a href="/">Classic<span>Style</span></a></h1>
+        </div>
+
+      </div>
+      <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+        <ul class="nav navbar-nav">
+          <li ><a href="/" class="act">Home</a></li>
+          <!-- Mega Menu -->
+          <li><a href="codes.html"> Codes</a></li>
+          <li><a href="/all-phone"> All Phones</a></li>
+          <li><a href="/contact-me">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div>
+<!-- //header -->
+<!--banner-->
+<div class="banner-top">
+  <div class="container">
+    <h2 class="animated wow fadeInLeft" data-wow-delay=".5s">My Account</h2>
+    <h3 class="animated wow fadeInRight" data-wow-delay=".5s"><a href="/">Home</a><label>/</label>My Account</h3>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<!-- contact -->
+<div class="contact">
+  <div class="container">
+
+
+    <div class="col-md-8 contact-grids1 animated wow fadeInRight" data-wow-delay=".5s">
+      <div id="formContent" style="line-height: 35px;">
+
+        <h3 class="active" style="margin-bottom: 30px; color: #00e7ff">Account Info</h3>
+
+
+        <div id="formFooter">
+          Hi, <span th:text="${personal.getFirstName()} + ' ' + ${personal.getLastName()}"></span> !
+        </div>
+
+        <th:block th:object="${personal}" >
+          <div class="list1">
+            <b>User : </b>
+            <span th:utext="${personal.getUsername()}"></span>
+          </div>
+          <div class="list1">
+            <b>Role : </b>
+            <span th:utext="${personal.getRole().getName()}"></span>
+          </div>
+          <div class="list1">
+            <b>Mail : </b>
+            <span th:utext="${personal.getEmail()}"></span>
+          </div>
+        </th:block>
+
+      </div>
+      <div style="margin-top: 50px">
+
+        <a href="" class="btn btn-info" style="padding: 10px 0;font-size: 20px;">Transaction history</a>
+        <a href="/user/change-password" class="btn btn-warning" style="padding: 10px 0;font-size: 20px;">Change Password</a>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-4 contact-grids">
+      <div class=" contact-grid animated wow fadeInLeft" data-wow-delay=".5s">
+        <div class="contact-grid1">
+          <div class="contact-grid2 ">
+            <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+          </div>
+          <div class="contact-grid3">
+            <h4>Address</h4>
+            <p>12K Street, 45 Building Road <span>New York City.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class=" contact-grid animated wow fadeInUp" data-wow-delay=".5s">
+        <div class="contact-grid1">
+          <div class="contact-grid2 contact-grid4">
+            <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+          </div>
+          <div class="contact-grid3">
+            <h4>Call Us</h4>
+            <p>+1234 758 839<span>+1273 748 730</span></p>
+          </div>
+        </div>
+      </div>
+      <div class=" contact-grid animated wow fadeInRight" data-wow-delay=".5s">
+        <div class="contact-grid1">
+          <div class="contact-grid2 contact-grid5">
+            <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+          </div>
+          <div class="contact-grid3">
+            <h4>Email</h4>
+            <p><a href="contactto:info@example.com">info@example1.com</a><span><a href="contactto:info@example.com">info@example2.com</a></span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.7013689320843!2d105.83622461535433!3d21.004604
+  593977376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac79a49d7e5b%3A0x30dd796fcb834630!2zTmcuIDYgUGjGsMahb
+  mcgTWFpLCBQaMawxqFuZyBNYWksIMSQ4buRbmcgxJBhLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1643013246663!5m2!1svi!2s"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div >
+<!-- //contact -->
+<div class="social animated wow fadeInUp" data-wow-delay=".1s">
+  <div class="container">
+    <div class="col-sm-3 social-ic">
+      <a href="#">FACEBOOK</a>
+    </div>
+    <div class="col-sm-3 social-ic">
+      <a href="#">TWITTER</a>
+    </div>
+    <div class="col-sm-3 social-ic">
+      <a href="#">GOOGLE+</a>
+    </div>
+    <div class="col-sm-3 social-ic">
+      <a href="#">PINTEREST</a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="col-md-9 footer-top1">
+        <h4>Duis aute irure dolor in reprehenderit in voluptate </h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.Excepteur sint occaecat cupidatat
+          non proident Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
+      </div>
+      <div class="col-md-3 footer-top2">
+        <a href="/contact-me">Contact Us</a>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="footer-grids">
+      <div class="col-md-4 footer-grid animated wow fadeInLeft" data-wow-delay=".5s">
+        <h3>About Us</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.<span>Excepteur sint occaecat cupidatat
+						non proident, sunt in culpa qui officia deserunt mollit.</span></p>
+      </div>
+      <div class="col-md-4 footer-grid animated wow fadeInLeft" data-wow-delay=".6s">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="glyphicon glyphicon-map-marker" ></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+          <li class="foot-mid"><i class="glyphicon glyphicon-envelope" ></i><a href="mailto:info@example.com">info@example.com</a></li>
+          <li><i class="glyphicon glyphicon-earphone" ></i>+1234 567 567</li>
+        </ul>
+      </div>
+      <div class="col-md-4 footer-grid animated wow fadeInLeft" data-wow-delay=".7s">
+        <h3>Sign up for newsletter </h3>
+        <form>
+          <input type="text" placeholder="Email"  required="">
+          <input type="submit" value="Submit">
+        </form>
+
+      </div>
+
+      <div class="clearfix"> </div>
+    </div>
+
+    <div class="copy-right animated wow fadeInUp" data-wow-delay=".5s">
+      <p>&copy 2016 Classic Style. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+  </div>
+</div>
+<!-- //footer -->
+</body>
+</html>

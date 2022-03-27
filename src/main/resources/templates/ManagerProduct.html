@@ -96,7 +96,7 @@
             <div class="hint-text">Showing <b th:text="${pageSize}"></b> out of <b th:text="${totalItems}"></b> entries</div>
             <ul class="pagination" th:if="${totalPages > 1}">
 
-                <li class="page-item " th:class="${currentPage == 1} ? 'disabled' : ''"><a th:if="${currentPage <= totalPages}" th:href="@{'/manage-phone/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a></li>
+                <li class="page-item " th:class="${currentPage == 1} ? 'disabled' : ''"><a th:if="${currentPage > 1}" th:href="@{'/manage-phone/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a></li>
                 <li class="page-item"><a class="page-link" tabindex="-1" aria-disabled="true" th:href="@{'/manage-phone/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a></li>
                 <th:block th:each="i: ${#numbers.sequence(1, totalPages)}">
                     <li class="page-item active" aria-current="page" th:class="${currentPage == i} ? 'page-item active': 'page-item'" >
@@ -106,7 +106,7 @@
                 <li class="page-item">
                     <a class="page-link" tabindex="-1" aria-disabled="true" th:href="@{'/manage-phone/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
                 </li>
-                <li class="page-item" th:class="${currentPage == totalPages} ? 'disabled' : ''"><a th:if="${currentPage <= totalPages}" th:href="@{'/manage-phone/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a></li>
+                <li class="page-item" th:class="${currentPage == totalPages} ? 'disabled' : ''"><a th:if="${currentPage < totalPages}" th:href="@{'/manage-phone/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a></li>
 
             </ul>
         </div>

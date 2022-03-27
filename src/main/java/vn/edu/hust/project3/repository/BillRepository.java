@@ -1,5 +1,7 @@
 package vn.edu.hust.project3.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,4 +16,6 @@ public interface BillRepository extends JpaRepository<Bill, Integer> {
     @Modifying
     @Query(value = "UPDATE Bill b SET b.status = 2 WHERE b.id = ?1", nativeQuery = true)
     void confirmBill(int id);
+
+    Page<Bill> findByUserId(int userId, Pageable pageable);
 }

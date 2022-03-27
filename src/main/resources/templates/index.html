@@ -216,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="#"><img src="images/ll.png" alt=""></a>
 								<h6 th:text="${featuredProduct.name}"><a th:href="@{'/all-phone/' + ${featuredProduct.getId()}}"></a></h6>
 								<p class="ba-price"><del>$100.00</del><em class="item_price" th:text="${featuredProduct.price}"></em></p>
-								<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
+								<a th:href="@{cart/add-cart(id=${featuredProduct.getId()})}" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 							</div>
 						</div>
 					</div>
@@ -336,7 +336,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="#"><img src="images/ll.png" alt=""></a>
 						<h6><a href="#" th:text="${mostQuantityPhone.name}"></a></h6>
 						<p ><del th:text=  "'$'+${mostQuantityPhone.oldPrice}"></del><em class="item_price" th:text=  "'$'+${mostQuantityPhone.price}"></em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
+						<a th:href="@{cart/add-cart(id=${mostQuantityPhone.getId()})}" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 					</div>
 				</div>
 			</div>
@@ -370,7 +370,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="#"><img src="images/ll.png" alt=""></a>
 						<h6><a href="#" th:text=  "${newestPhone.name}">Sed ut perspiciatis unde</a></h6>
 						<p ><del th:text=  "'$'+${newestPhone.oldPrice}"></del><em class="item_price" th:text=  "'$'+${newestPhone.price}"></em></p>
-						<a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
+						<a th:href="@{cart/add-cart(id=${newestPhone.getId()})}" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
 					</div>
 				</div>
 			</div>
