@@ -5,13 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import vn.edu.hust.project3.model.Bill;
-import vn.edu.hust.project3.model.CartItem;
-import vn.edu.hust.project3.model.Phone;
-import vn.edu.hust.project3.model.User;
+import vn.edu.hust.project3.model.*;
 import vn.edu.hust.project3.repository.UserRepository;
 import vn.edu.hust.project3.service.BillPhoneService;
 import vn.edu.hust.project3.service.BillService;
+import vn.edu.hust.project3.service.MailService;
 import vn.edu.hust.project3.service.PhoneService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +29,8 @@ public class CheckoutResource {
     private final BillService billService;
 
     public static final Integer WAITING_FOR_PROCESSING = 1;
+
+    private final MailService mailService;
 
     @GetMapping("/checkout")
     public String Checkout(){
@@ -59,10 +59,12 @@ public class CheckoutResource {
                 billPhoneService.createBillPhone(bill, item);
             } else {
                 model.addAttribute("message","Out of stock");
-                return "fail";
+                return "OrderFail";
             }
         }
+
         cartItems.clear();
-        return "redirect:/";
+        mailService.sendOrderMail(user);
+        return "OrderSuccess";
     }
 }

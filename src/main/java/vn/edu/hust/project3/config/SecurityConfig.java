@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/user/*", "/cart/*", "/checkout","/sendMail","/sendMoney").hasAnyAuthority("admin", "member");
 
         //chỉ có quyền Adminmới được truy cập
-        http.authorizeRequests().antMatchers("/manage-phone/*","/manage-category").hasAnyAuthority("admin")
+        http.authorizeRequests().antMatchers("/manage-phone/*","/manage-category/*","manage-bill/*").hasAnyAuthority("admin")
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/user/admin");
 
         // Khi không đủ quyền truy cập sẽ bị chuyển hướng
