@@ -68,7 +68,7 @@
       <td th:text="${billdetail.getPhone().getId()}"></td>
       <td th:text="${billdetail.getPhone().getName()}"></td>
       <td>
-        <img th:src=" ${billdetail.getPhone().getImage()}" alt="" style="width: 70px;height: 70px">
+        <img th:src=" ${billdetail.getPhone().getImagePath()}" alt="" style="width: 70px;height: 70px">
       </td>
       <td th:text="${billdetail.getPhone().getPrice()}"></td>
       <td th:text="${billdetail.getQuantity()}"></td>

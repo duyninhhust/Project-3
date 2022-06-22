@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('#fileImage').change(function () {
+        showImageThumbnail(this);
+    })
     // Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -125,6 +128,15 @@ function openDeleteModal(id){
         })
     }
 
+}
+
+function showImageThumbnail(fileInput) {
+    file = fileInput.files[0]
+    reader = new FileReader();
+    reader.onload = function (e) {
+        $('#thumbnail').attr('src', e.target.result)
+    };
+    reader.readAsDataURL(file);
 }
 
 

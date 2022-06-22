@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <tr class="cross" th:each="cart : ${carts}">
 			<td class="ring-in t-data">
 				<a th:href="@{'/all-phone/' + ${cart.getPhone().getId()}}" class="at-in">
-					<img th:src="*{cart.getPhone().getImage()}" class="img-responsive" alt="" style="width: 100px; height: 120px">
+					<img th:src="*{cart.getPhone().getImagePath()}" class="img-responsive" alt="" style="width: 100px; height: 120px">
 				</a>
 			<div class="sed">
 				<h5 th:text="*{cart.getPhone().getName()}"></h5>
@@ -255,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 			</td>
-			  <td class="glyphicon-align-center"><a th:href="@{'cart/remove-cart?id=' + ${cart.getPhone().getId()}}" class="text-dark">
+			  <td class=""><a th:href="@{'cart/remove-cart?id=' + ${cart.getPhone().getId()}}" class="text-dark">
 				  <button type="button" class="btn btn-danger" style="margin-top: 45px">Delete</button>
 			  </a>
 			  </td>

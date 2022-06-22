@@ -46,7 +46,7 @@
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form th:action="@{/save-phone}" method="post" th:object="${phone}" id="editForm">
+                        <form th:action="@{/save-phone}" method="post" th:object="${phone}" id="editForm" enctype="multipart/form-data">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="/manage-phone/1?sortField=id&sortDir=asc">&times;</a></button>
@@ -62,7 +62,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input  name="image" type="text" class="form-control" required th:field="*{image}">
+                                    <input  name="fileImage" type="file" id="fileImage" class="form-control " accept="image/png, image/jpeg ">
+                                    <img id="thumbnail" alt="Logo preview" src="" style="object-fit: cover;height: 300px;width: 400px">
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>

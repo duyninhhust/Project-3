@@ -289,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="product-head">
 						<div class="product-go" th:each="newPhone : ${newestPhone}">
 							<div class=" fashion-grid">
-								<a th:href="@{'/all-phone/' + ${newPhone.getId()}}"><img class="img-responsive " th:src="${newPhone.getImage()}" alt=""></a>
+								<a th:href="@{'/all-phone/' + ${newPhone.getId()}}"><img class="img-responsive " th:src="${newPhone.getImagePath()}" alt=""></a>
 
 							</div>
 							<div class=" fashion-grid1">
@@ -332,16 +332,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 				<div class="mid-popular" >
-					<div class="col-sm-4 item-grid item-gr  simpleCart_shelfItem "  th:each=" phone : ${phones}">
-						<div class="grid-pro d-flex">
-							<div class=" grid-product ">
+					<div class="col-sm-4 item-grid item-gr  simpleCart_shelfItem " th:each=" phone : ${phones}">
+						<div class="grid-pro d-flex" style="min-height: 450px" >
+							<div class=" grid-product " style="min-height: 260px" >
 								<figure>
 									<a th:href="@{'/all-phone/' + ${phone.getId()}}">
 										<div class="grid-img">
-											<img th:src="${phone.getImage()}" class="img-responsive" alt="">
+											<img th:src="${phone.getImagePath()}" class="img-responsive" alt="">
 										</div>
 										<div class="grid-img">
-											<img th:src="${phone.getImage()}" class="img-responsive" alt="">
+											<img th:src="${phone.getImagePath()}" class="img-responsive" alt="">
 										</div>
 									</a>
 								</figure>

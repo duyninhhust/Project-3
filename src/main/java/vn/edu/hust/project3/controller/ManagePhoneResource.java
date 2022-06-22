@@ -1,10 +1,14 @@
 package vn.edu.hust.project3.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 import vn.edu.hust.project3.model.Alert;
@@ -13,11 +17,18 @@ import vn.edu.hust.project3.model.Phone;
 import vn.edu.hust.project3.service.CategoryService;
 import vn.edu.hust.project3.service.PhoneService;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Controller
 //@RequestMapping("/admin/")
 @RequiredArgsConstructor
+@Log4j2
 public class ManagePhoneResource {
 
     private final PhoneService phoneService;
@@ -65,15 +76,48 @@ public class ManagePhoneResource {
     }
 
     @PostMapping("/save-phone")
-    RedirectView savePhone(@ModelAttribute Phone phone, Model model, RedirectAttributes redirectAttributes){
+    RedirectView savePhone(@ModelAttribute Phone phone,
+                           @RequestParam("fileImage") MultipartFile multipartFile,
+                           RedirectAttributes redirectAttributes) throws IOException {
+
         RedirectView redirectView;
         String alert = "";
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        phone.setImage(fileName);
+
         if(phone.getId() != 0){
-            phoneService.updatePhone(phone.getId(), phone);
+            Phone updatedPhone = phoneService.updatePhone(phone.getId(), phone);
+            String uploadDir = "./phone-images/" + updatedPhone.getId();
+            Path uploadPath = Paths.get(uploadDir);
+            if(!Files.exists(uploadPath)){
+                Files.createDirectories(uploadPath);
+            }
+            try {
+                InputStream inputStream = multipartFile.getInputStream();
+                Path filePath = uploadPath.resolve(fileName);
+                log.info("Absolute Path : {}", filePath.toFile().getAbsolutePath());
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e){
+                throw new IOException("Could not save uploaded file :" + fileName);
+            }
             alert = "Chỉnh sửa thông tin sản phẩm thành công";
             redirectView = new RedirectView("/manage-phone/1?sortField=id&sortDir=asc" , true);
         } else {
-            phoneService.createPhone(phone);
+            Phone newPhone = phoneService.createPhone(phone);
+            String uploadDir = "./phone-images/" + newPhone.getId();
+            Path uploadPath = Paths.get(uploadDir);
+            if(!Files.exists(uploadPath)){
+                Files.createDirectories(uploadPath);
+            }
+            try {
+                InputStream inputStream = multipartFile.getInputStream();
+                Path filePath = uploadPath.resolve(fileName);
+                log.info("Absolute Path : {}", filePath.toFile().getAbsolutePath());
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e){
+                throw new IOException("Could not save uploaded file :" + fileName);
+            }
+
             alert = "Thêm mới sản phẩm thành công";
             redirectView = new RedirectView("/manage-phone/1?sortField=id&sortDir=asc", true);
         }

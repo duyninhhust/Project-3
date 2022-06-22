@@ -54,4 +54,10 @@ public class Phone {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    @Transient
+    public String getImagePath(){
+        if (image == null ) return null;
+        return "/phone-images/" + id + "/" + image;
+    }
+
 }

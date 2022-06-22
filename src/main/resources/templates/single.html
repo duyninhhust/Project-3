@@ -285,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-head">
 					<div class="product-go" th:each="newPhone : ${newestPhone}">
 						<div class=" fashion-grid">
-							<a th:href="@{'/all-phone/' + ${newPhone.getId()}}"><img class="img-responsive " th:src="${newPhone.getImage()}" alt=""></a>
+							<a th:href="@{'/all-phone/' + ${newPhone.getId()}}"><img class="img-responsive " th:src="${newPhone.getImagePath()}" alt=""></a>
 
 						</div>
 						<div class=" fashion-grid1">
@@ -307,7 +307,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="flexslider">
 			  <ul class="slides" th:object="${phone}">
 			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img th:src="${phone.getImage()}" data-imagezoom="true" class="img-responsive"> </div>
+			        <div class="thumb-image"> <img th:src="${phone.getImagePath()}" data-imagezoom="true" class="img-responsive"> </div>
 			    </li>
 <!--			    <li data-thumb="images/si1.jpg">-->
 <!--			         <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>-->
