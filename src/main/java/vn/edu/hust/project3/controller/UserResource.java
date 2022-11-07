@@ -113,4 +113,16 @@ public class UserResource {
 
         return "register";
     }
+
+    @GetMapping("/user/transaction-history")
+    public String getTransactionHistory(Model model, Principal principal){
+        User personal = userRepository.findAccountByUsername(principal.getName()).get();
+        List<Bill> bills = billRepository.findByUserId(personal.getId());
+        if (bills.size() > 0){
+            model.addAttribute("bills", bills);
+        } else {
+            model.addAttribute("message","You have never made a purchase before");
+        }
+        return "MyOrder";
+    }
 }

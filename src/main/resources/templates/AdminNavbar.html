@@ -1,12 +1,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">Admin Manager</a>
+            <a class="navbar-brand">AdminPage</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="" th:class="${pageId == 3} ? 'active': ''"><a th:href="@{'/manage-category'}">Manager Category</a></li>
-            <li class="" th:class="${pageId == 1} ? 'active': ''"><a th:href="@{'/manage-phone/1?sortField=id&sortDir=asc'}">Manager Product</a></li>
-            <li class="" th:class="${pageId == 2} ? 'active': ''"><a th:href="@{'/manage-bill/1?sortField=id&sortDir=asc'}">Manager Bill</a></li>
+            <li class="" th:class="${pageId == 3} ? 'active': ''"><a th:href="@{'/manage-category'}">Manage Category</a></li>
+            <li class="" th:class="${pageId == 1} ? 'active': ''"><a th:href="@{'/manage-phone/1?sortField=id&sortDir=asc'}">Manage Product</a></li>
+            <li class="" th:class="${pageId == 2} ? 'active': ''"><a th:href="@{'/manage-bill/1?sortField=id&sortDir=asc'}">Manage Bill</a></li>
+            <li class="" th:class="${pageId == 4} ? 'active': ''"><a th:href="@{'/manage-user/1?sortField=id&sortDir=asc'}">Manage User</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label>Image</label>
                                     <input  name="fileImage" type="file" id="fileImage" class="form-control " accept="image/png, image/jpeg ">
-                                    <img id="thumbnail" alt="Logo preview" src="" style="object-fit: cover;height: 300px;width: 400px">
+                                    <img id="thumbnail" alt="Logo preview" th:src="${phone.imagePath}" style="object-fit: cover;height: 300px;width: 400px">
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
